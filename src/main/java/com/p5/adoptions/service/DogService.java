@@ -51,7 +51,7 @@ public class DogService {
         if(toUpdate == null)
             throw new RuntimeException("DogDTO must exist!");
 
-        toUpdate.setUrl(dog.getPhotoUrl());
+        toUpdate.setPhotoUrl(dog.getPhotoUrl());
         DogDTO updated = DogAdapter.toDto(dogRepository.save(toUpdate));
 
         return updated;
