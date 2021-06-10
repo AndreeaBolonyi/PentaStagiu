@@ -10,12 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/shelters")
-public class AnimalShelterController
-{
+public class AnimalShelterController {
     private final AnimalShelterService shelterService;
 
-    public AnimalShelterController(AnimalShelterService shelterService)
-    {
+    public AnimalShelterController(AnimalShelterService shelterService) {
         this.shelterService = shelterService;
     }
 
@@ -25,20 +23,17 @@ public class AnimalShelterController
     }
 
     @GetMapping("/{id}")
-    private ResponseEntity<AnimalShelterDTO> getShelter(@PathVariable("id") Integer id)
-    {
+    private ResponseEntity<AnimalShelterDTO> getShelter(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(shelterService.getShelter(id));
     }
 
     @PostMapping
-    private ResponseEntity<AnimalShelterDTO> createShelter(@Valid @RequestBody AnimalShelterDTO shelterDTO)
-    {
+    private ResponseEntity<AnimalShelterDTO> createShelter(@Valid @RequestBody AnimalShelterDTO shelterDTO) {
         return ResponseEntity.ok(shelterService.createShelter(shelterDTO));
     }
 
     @PutMapping
-    private ResponseEntity<AnimalShelterDTO> updateShelter(@RequestBody AnimalShelterDTO shelterDTO)
-    {
+    private ResponseEntity<AnimalShelterDTO> updateShelter(@Valid @RequestBody AnimalShelterDTO shelterDTO) {
         return ResponseEntity.ok(shelterService.updateShelter(shelterDTO));
     }
 }
