@@ -19,8 +19,6 @@ import java.util.List;
 @RequestMapping("/api/v1/animals")
 public class AnimalController
 {
-
-
     //  OLD WAY: No Bueno:   @RequestMapping(method = RequestMethod.GET, value = "/hello")
     //  call: /api/v1/animals/hello
     @GetMapping("/hello")
@@ -44,6 +42,7 @@ public class AnimalController
             return ResponseEntity.badRequest().body(animal);
         }
         AnimalStore.available.add(animal);
+
         return ResponseEntity.ok(animal);
     }
 
